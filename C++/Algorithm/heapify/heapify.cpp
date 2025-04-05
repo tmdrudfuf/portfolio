@@ -1,0 +1,159 @@
+﻿#include <iostream>
+#include <fstream>
+#include "Employee.h"
+
+using namespace std;
+
+void maxHeapify(Employee** employees, int n, int i, int& count) {
+	int largest = i;
+	int left = 2 * i + 1;
+	int right = 2 * i + 2;
+
+	count++;
+	if (left < n && employees[left]->id>employees[largest]->id) {
+		largest = left;
+	}
+	count++;
+
+	if (right< n && employees[right]->id > employees[largest]->id) {
+		largest = right;
+	}
+
+	if (largest != i) {
+		Employee* temp = employees[i];
+		employees[i] = employees[largest];
+		employees[largest] = temp;
+		maxHeapify(employees, n, largest, count);
+	}
+
+}
+
+void buildMaxHeap(Employee** employees, int n, int& count) {
+	for (int i = n / 2; i >= 0;i--) {
+		maxHeapify(employees, n, i, count);
+	}
+}
+
+void heapSort(Employee** employees, int n, int& count) {
+	
+	/*for (int j = 0; j < n; j++) {
+		cout << employees[j]->id << " ";
+	}
+	cout << endl;*/
+
+	buildMaxHeap(employees, n, count);
+
+	/*for (int j = 0; j < n; j++) {
+		cout << employees[j]->id << " ";
+	}
+	cout << endl;*/
+
+	for (int i = n - 1; i > 0;i--) {
+		Employee* temp = employees[0];
+		employees[0] = employees[i];
+		employees[i] = temp;
+
+		maxHeapify(employees, i, 0, count);
+		/*for (int j = 0; j < n; j++) {
+			cout << employees[j]->id << " ";
+		}
+		cout << endl;*/
+	}
+	
+}
+
+int main(int argc, char** argv)
+{
+
+	//first, make sure we didn't forget the filename
+	if (argc < 2) {
+		cout << "Please include a command line parameter" << endl;
+		exit(1);
+	}
+
+	ifstream ifs;
+	ifs.open(argv[1], ios::in);
+
+	//next, make sure the file really exists
+	if (!ifs) {
+		cout << "Could not find file: " << argv[1] << endl;
+		exit(1);
+	}
+
+	//read the first line of the file, to see how many employees there are
+	string tmp;
+	getline(ifs, tmp);
+	int n = stoi(tmp);
+	ofstream ky("output.txt");
+	ky << n << endl;
+
+	//allocate an array of the correct size, to store the employee objects
+	Employee** staff = new Employee * [n];
+
+	//read each line of the file, and instantiate a new employee object. Put it into the array.
+	for (int i = 0; i < n; i++) {
+		staff[i] = new Employee();
+		string tmp;
+		getline(ifs, staff[i]->name, '|');
+		getline(ifs, tmp, '|');
+		staff[i]->id = stoi(tmp);
+		getline(ifs, tmp, '|');
+		staff[i]->age = stoi(tmp);
+		getline(ifs, staff[i]->job, '|');
+		getline(ifs, tmp);
+		staff[i]->year = stoi(tmp);
+
+	
+	}
+
+	//how many queries will there be?
+	int q = n;
+	int count = 0;
+	
+	heapSort(staff, n, count);
+	
+	double totalWork = 0;
+
+	for (int i = 0; i < q;i++) {
+		/*getline(ifs, tmp);*/
+		/*int x = stoi(tmp);*/
+
+		//intiation
+		int low = 0;  // begin of the range
+		int high = n; // end of the range
+		int count = 0; //counting 
+
+		//buble sort
+		for (int i = 0; i < n - 1; i++) {
+			for (int j = n - 1; j >= i + 1;j--) {
+				count++;
+				if (staff[j]->id < staff[j - 1]->id) {
+					Employee* tem = staff[j];
+					staff[j] = staff[j - 1];
+					staff[j - 1] = tem;
+					/*for (int k = 0;k < n;k++) {
+						cout << staff[k]->id << " ";
+
+					}
+					cout << endl;*/
+
+				}
+			}
+		}
+
+		totalWork += count;
+	}
+	//the average is the total number of comparisons divided by the number of queries
+	cout << "It took " << count << " comparisons to sort this list" << endl;
+
+	for (int i = 0; i < n; i++) {
+		ky << staff[i]->name << "|" << staff[i]->id << "|" << staff[i]->age << "|" << staff[i]->job << "|" << staff[i]->year << endl;
+	}
+	//ofs << "ky" << endl;
+	ky.close();
+	//cout << staff[2] << endl;
+
+
+	return 0;
+}
+

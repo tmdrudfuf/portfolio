@@ -1,0 +1,6 @@
+﻿  LCS.cpp
+C:\Users\tmdru\OneDrive\바탕 화면\BYUH\CS301\LCS\LCS.cpp(14,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\tmdru\OneDrive\바탕 화면\BYUH\CS301\LCS\LCS.cpp(15,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\tmdru\OneDrive\바탕 화면\BYUH\CS301\LCS\LCS.cpp(114,41): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\tmdru\OneDrive\바탕 화면\BYUH\CS301\LCS\LCS.cpp(114,29): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  LCS.vcxproj -> C:\Users\tmdru\OneDrive\바탕 화면\BYUH\CS301\LCS\x64\Debug\LCS.exe

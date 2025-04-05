@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Main.css">
+</head>
+<body>
+    <header>
+        <h1>
+            Korean Recipe Book
+        </h1>
+    </header>
+    <nav>        
+        <a href="Main.html">Home</a>
+        <a href="Bibimbap.html">Bibimbap</a>
+        <a href="Bulgogi.html">Bulgogi</a>
+        <a href="Kimchichigae.html">Kimchichigae</a>
+        <a href="Tteokboki.html">Tteokboki</a>
+        <a href="Table.html">Information</a>
+        <a href="Form.html" class="active">Login Page</a>
+    </nav>
+    <main>
+        <div id="message"></div>
+        <form action="processing.html" method="get" id="myForm">
+            <fieldset>
+                <legend> Sign up</legend>
+                    <div class="formContents">
+                        <label for="firstName">First Name:</label> 
+                        <input type="text" id="firstName" name="first" placeholder="First Name"></div>
+                    <div class="formContents">
+                        <label for="lastName">Last Name:</label> 
+                        <input type="text" id="lastName" name="last" placeholder="Last Name"></div>
+                    <div class="formContents">
+                        <label for="password">Password:</label> 
+                        <input type="password" id="password" name="pass"></div>
+                    <div class="formContents">
+                        <label for="email">E-mail:</label> 
+                        <input type="email" id = "email" name="email"></div>
+                    <div class="formContents">
+                        <label for="age">Age:</label> 
+                        <input type="number" name="age" id="age"></div>
+                    <div class="formContents">
+                        <div class="spacer"></div>
+                        <input type="submit"></div>
+            </fieldset>
+        </form>
+    </main>
+    <footer>
+        &copy; Kyseung
+    </footer>
+    <script src="Form.js"></script>
+</body>
+</html>

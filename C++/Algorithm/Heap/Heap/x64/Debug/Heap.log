@@ -1,0 +1,4 @@
+﻿  sort.cpp
+C:\Users\tmdru\OneDrive\바탕 화면\BYUH\CS301\Heap\sort.cpp(46,19): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\tmdru\OneDrive\바탕 화면\BYUH\CS301\Heap\sort.cpp(58,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Heap.vcxproj -> C:\Users\tmdru\OneDrive\바탕 화면\BYUH\CS301\Heap\x64\Debug\Heap.exe
