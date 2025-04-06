@@ -1,6 +1,6 @@
 # 👋 Welcome to My Portfolio
 
-Hi, I'm Kyeonglyeol Seung — a Computer Science student with a passion for building applications and solving problems through code.
+Hi, I'm Kyeonglyeol Seung (but I go by Ky), a Computer Science student with a passion for building applications and solving problems through code.
 
 This repository showcases a selection of my personal and academic projects using technologies like **Android Studio**, **Java**, **HTML**, **Python**, and **C++**.
 
@@ -45,7 +45,6 @@ This repository showcases a selection of my personal and academic projects using
 
 Each folder contains a separate project. Inside each folder, you’ll find:
 - Source code
-- Screenshots or demo video (if available)
 - A `README.md` file with detailed info
 
 ---
