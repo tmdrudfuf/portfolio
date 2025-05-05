@@ -1,0 +1,3 @@
+[submodule "CS490R"]
+	path = CS490R
+	url = git@github.com:tmdrudfuf/CS490R.git
